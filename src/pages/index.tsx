@@ -47,7 +47,7 @@ export default function Home() {
             {hello.data ? hello.data.greeting : "Loading tRPC query..."}
           </p>
           <p className="text-2xl text-white">
-            {vehicle.data ? vehicle.data.stockNumber : "WTF"}
+            {vehicle.data ? vehicle.data.stockNumber : "Loading Stock Number"}
           </p>
         </div>
       </main>
