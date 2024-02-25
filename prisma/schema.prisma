@@ -14,11 +14,43 @@ datasource db {
     relationMode = "prisma"
 }
 
-model Post {
-    id        Int      @id @default(autoincrement())
-    name      String
+model PannelBeater {
+    pbId            Int      @id @default(autoincrement())
+    name            String
+    pbVehicle       Vehicle[]
+}
+
+model Valet {
+    vId             Int      @id @default(autoincrement())
+    name            String
+    vVehicle        Vehicle[]
+}
+
+model Workshop{
+    wsId            Int      @id @default(autoincrement())
+    name            String
+    wsVehicle       Vehicle[]
+}
+
+model Vehicle {
+    id              Int      @id @default(autoincrement())
+    stockNumber     String   @unique
+    make            String
+    model           String
+    color           String
+
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 
-    @@index([name])
+    pannelbeater    PannelBeater @relation(fields: [pbId], references: [pbId])
+    pbId            Int    
+    @@index([pbId])
+
+    valet           Valet @relation(fields: [vId], references: [vId])
+    vId             Int  
+    @@index([vId])
+
+    Workshop        Workshop @relation(fields: [wsId], references: [wsId])
+    wsId            Int  
+    @@index([wsId])
 }
