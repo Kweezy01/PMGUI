@@ -35,20 +35,10 @@ export default function Home() {
             {data.map((e) => (
               <tr key={e.stockNumber} className="bg-black bg-opacity-70 text-slate-300 font-bold ml-6 border-b">
                 <td className="text-center border-x"><Link href={e.stockNumber}>{e.stockNumber}</Link></td>
-                <td className="text-center border-x">{`${e.make}, ${e.make}`}</td>
+                <td className="text-center border-x">{e.make}</td>
                 <td className="text-center border-x">{e.model}</td>
               </tr>
             ))}
-          </table>
-          <br />
-          <button className="bg-green-700 hover:bg-green-800  py-2 px-4 border border-lime-900 rounded"><Link href="add-team">Add a team</Link></button>
-          <table>
-            <tr>
-              <br />
-              <button className="ml-1 bg-green-700 hover:bg-green-800  py-2 px-4 border border-lime-900 rounded">
-                <Link href={"/catches"}>Catches</Link>
-              </button>
-            </tr>
           </table>
         </div>
       </main>
